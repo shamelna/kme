@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store — Kaizen Made Easy™</title>
+    <meta name="description" content="Shop Kaizen Made Easy merchandise — mugs, t-shirts, and daily reminders for continuous improvement practitioners. 20% off sitewide — limited time.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Store — Kaizen Made Easy™">
+    <meta property="og:description" content="Shop Kaizen Made Easy merchandise. 20% off sitewide for a limited time. Free shipping over $50 worldwide.">
+    <meta property="og:image" content="https://marketing.kaizenmadeeasy.com/assets/images/Logo_blue.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Store — Kaizen Made Easy™">
+    <meta property="twitter:description" content="Shop Kaizen Made Easy merchandise. 20% off sitewide for a limited time. Free shipping over $50 worldwide.">
+    <meta property="twitter:image" content="https://marketing.kaizenmadeeasy.com/assets/images/Logo_blue.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://kaizenmadeeasy.com/Logo%20new%202024%20with%20blue%20background.png">
+    <link rel="apple-touch-icon" href="https://kaizenmadeeasy.com/Logo%20new%202024%20with%20blue%20background.png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #12385b;
+            --secondary-color: #017bb5;
+            --accent-color: #de1738;
+            --accent-hover: #b91330;
+            --light-blue: #e9f0f8;
+            --white: #ffffff;
+            --text-dark: #12385b;
+            --text-light: #017bb5;
+            --border-color: #e9f0f8;
+            --shadow: 0 4px 6px rgba(18, 56, 91, 0.1);
+            --shadow-lg: 0 10px 25px rgba(18, 56, 91, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ─── HEADER ─── */
+        .app-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 1.5rem 0;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        .app-header::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="50" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="30" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .logo-section { display: flex; align-items: center; gap: 1rem; }
+        .logo-img { width: 50px; height: 50px; border-radius: 8px; }
+        .brand-text h1 { font-size: 1.8rem; font-weight: 700; color: var(--white); margin-bottom: 0.25rem; }
+        .brand-text p { font-size: 0.9rem; color: rgba(255,255,255,0.9); margin: 0; }
+        .header-nav { display: flex; align-items: center; gap: 0.5rem; }
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.75rem 1rem;
+            border-radius: 50px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.85;
+        }
+        .nav-link:hover {
+            color: var(--white);
+            background: rgba(255,255,255,0.15);
+            opacity: 1;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .nav-link-store {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            box-shadow: 0 2px 8px rgba(222,23,56,0.3);
+            opacity: 1;
+        }
+        .nav-link-store:hover {
+            background: var(--accent-hover);
+            border-color: var(--accent-hover);
+            box-shadow: 0 4px 12px rgba(222,23,56,0.3);
+        }
+
+        /* ─── PROMO BANNER ─── */
+        .promo-banner {
+            background: var(--accent-color);
+            color: var(--white);
+            text-align: center;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .promo-banner .badge {
+            background: var(--white);
+            color: var(--accent-color);
+            padding: 0.2rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .promo-banner .separator { opacity: 0.5; }
+
+        /* ─── HERO ─── */
+        .store-hero {
+            padding: 4rem 0 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .store-hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: radial-gradient(ellipse at 60% 0%, rgba(1,123,181,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .store-hero-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; padding: 0 1.5rem; }
+        .store-hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--light-blue);
+            color: var(--secondary-color);
+            border: 1px solid rgba(1,123,181,0.25);
+            border-radius: 50px;
+            padding: 0.4rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+        .store-hero h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            line-height: 1.15;
+        }
+        .store-hero h2 span { color: var(--accent-color); }
+        .store-hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        .hero-offer-badges {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        .offer-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 0.75rem 1.25rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            box-shadow: var(--shadow);
+        }
+        .offer-badge .icon {
+            width: 36px; height: 36px;
+            background: var(--light-blue);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+        }
+        .offer-badge .badge-accent { color: var(--accent-color); font-weight: 700; }
+
+        /* ─── SECTION TITLE ─── */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            position: relative;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 3rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px; left: 50%;
+            transform: translateX(-50%);
+            width: 60px; height: 3px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* ─── PRODUCTS ─── */
+        .products-section {
+            padding: 1rem 0 5rem;
+            background: var(--white);
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        .filter-bar {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        .filter-btn {
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            border: 2px solid var(--border-color);
+            background: var(--white);
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--secondary-color);
+        }
+
+        .product-badge-wrap {
+            position: absolute;
+            top: 1rem; left: 1rem;
+            display: flex; flex-direction: column; gap: 0.4rem;
+            z-index: 2;
+        }
+        .product-badge {
+            display: inline-block;
+            padding: 0.25rem 0.65rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+        .badge-sale { background: var(--accent-color); color: var(--white); }
+        .badge-mug { background: var(--primary-color); color: var(--white); }
+        .badge-shirt { background: var(--secondary-color); color: var(--white); }
+
+        .product-image {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            background: var(--light-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.4s ease;
+        }
+        .product-card:hover .product-image img {
+            transform: scale(1.06);
+        }
+
+        .product-info { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+        .product-category {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--secondary-color);
+            margin-bottom: 0.4rem;
+        }
+        .product-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+            flex: 1;
+        }
+        .product-desc {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        .product-pricing {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .price-original {
+            font-size: 0.9rem;
+            color: #999;
+            text-decoration: line-through;
+        }
+        .price-sale {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        .price-saving {
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: rgba(222,23,56,0.1);
+            color: var(--accent-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .btn-shop {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition);
+            width: 100%;
+        }
+        .btn-shop:hover {
+            background: var(--secondary-color);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(1,123,181,0.3);
+        }
+
+        /* ─── SHIPPING INFO ─── */
+        .shipping-section {
+            padding: 4rem 0;
+            background: var(--light-blue);
+        }
+        .shipping-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+        .shipping-card {
+            background: var(--white);
+            border-radius: 14px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+        .shipping-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .shipping-icon {
+            width: 60px; height: 60px;
+            background: var(--light-blue);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.6rem;
+        }
+        .shipping-card h4 {
+            color: var(--primary-color);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+        .shipping-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .shipping-card .highlight { color: var(--accent-color); font-weight: 700; }
+
+        /* ─── CTA SECTION ─── */
+        .cta-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="50" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="30" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .cta-content { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; padding: 0 1.5rem; }
+        .cta-content h2 { color: var(--white); font-size: 2.2rem; font-weight: 700; margin-bottom: 1rem; }
+        .cta-content p { color: rgba(255,255,255,0.9); font-size: 1.05rem; margin-bottom: 2rem; line-height: 1.7; }
+        .countdown-wrap { margin-bottom: 2rem; }
+        .countdown-label { color: rgba(255,255,255,0.8); font-size: 0.85rem; font-weight: 500; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .countdown-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .countdown-num {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            width: 60px; height: 60px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+        .countdown-lbl { font-size: 0.7rem; color: rgba(255,255,255,0.7); margin-top: 0.4rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--accent-color);
+            color: var(--white);
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(222,23,56,0.4);
+        }
+        .btn-cta:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(222,23,56,0.5);
+        }
+
+        /* ─── FOOTER ─── */
+        .app-footer {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .app-footer::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="50" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="30" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .footer-brand { display: flex; flex-direction: column; align-items: center; margin-bottom: 1.5rem; }
+        .footer-logo { height: 50px; width: auto; margin-bottom: 1rem; filter: brightness(0) invert(1); }
+        .footer-brand h3 { margin-bottom: 0.75rem; color: var(--white); font-size: 1.3rem; font-weight: 700; }
+        .footer-brand p { opacity: 0.85; font-size: 0.9rem; line-height: 1.6; max-width: 500px; margin-bottom: 1rem; }
+        .footer-social-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; max-width: 600px; }
+        .footer-social-link {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+        .footer-social-link:hover { color: var(--white); opacity: 1; transform: translateY(-2px); background: rgba(255,255,255,0.1); }
+        .footer-social-link svg { transition: var(--transition); opacity: 0.9; width: 16px; height: 16px; }
+        .footer-social-link:hover svg { transform: scale(1.1); opacity: 1; }
+        .footer-store-link {
+            background: var(--accent-color);
+            padding: 0.6rem 1rem;
+            margin-top: 0.5rem;
+            box-shadow: 0 2px 8px rgba(222,23,56,0.3);
+        }
+        .footer-store-link:hover { background: var(--accent-hover); box-shadow: 0 4px 12px rgba(222,23,56,0.3); }
+        .footer-bottom { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .footer-copyright p { margin-bottom: 0; font-size: 0.85rem; opacity: 0.8; }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 768px) {
+            .header-nav { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+            .nav-link { padding: 0.5rem 0.75rem; font-size: 0.85rem; }
+            .store-hero h2 { font-size: 2rem; }
+            .hero-offer-badges { flex-direction: column; align-items: center; }
+            .products-grid { grid-template-columns: 1fr; }
+            .countdown { gap: 0.75rem; }
+            .countdown-num { width: 50px; height: 50px; font-size: 1.2rem; }
+            .cta-content h2 { font-size: 1.6rem; }
+            .shipping-grid { grid-template-columns: 1fr 1fr; }
+            .promo-banner { font-size: 0.85rem; }
+        }
+
+        @media (max-width: 480px) {
+            .shipping-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ─── ANIMATIONS ─── */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in-up { animation: fadeInUp 0.6s ease-out both; }
+
+        @keyframes pulse-badge {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .promo-banner .badge { animation: pulse-badge 2s ease-in-out infinite; }
+    </style>
+</head>
+<body>
+
+    <!-- ─── PROMO BANNER ─── -->
+    <div class="promo-banner">
+        <span class="badge">🔥 Limited Time</span>
+        <span>20% OFF everything in our store</span>
+        <span class="separator">|</span>
+        <span>🌍 Free worldwide shipping on orders over $50</span>
+    </div>
+
+    <!-- ─── HEADER ─── -->
+    <header class="app-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="https://marketing.kaizenmadeeasy.com/assets/images/Logo%20new%202024%20v2%20-%20White.png" alt="Kaizen Made Easy" class="logo-img">
+                <div class="brand-text">
+                    <h1>Kaizen Made Easy</h1>
+                    <p>Continuous improvement through knowledge sharing</p>
+                </div>
+            </div>
+            <nav class="header-nav">
+                <a href="https://kaizenmadeeasy.com" target="_blank" class="nav-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <span>Website</span>
+                </a>
+                <a href="https://www.youtube.com/@kaizenmadeeasy" target="_blank" class="nav-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                    <span>YouTube</span>
+                </a>
+                <a href="https://www.linkedin.com/company/kaizen-made-easy" target="_blank" class="nav-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://store.kaizenmadeeasy.com/collections/all" target="_blank" class="nav-link nav-link-store">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                    <span>Store</span>
+                </a>
+                <a href="https://podcast.kaizenmadeeasy.com/" target="_blank" class="nav-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+                    <span>Podcast</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ─── STORE HERO ─── -->
+    <section class="store-hero">
+        <div class="store-hero-content fade-in-up">
+            <div class="store-hero-eyebrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                Official Kaizen Made Easy™ Store
+            </div>
+            <h2>Wear Your <span>Continuous Improvement</span> Mindset</h2>
+            <p>Start every day with a reminder to improve. We designed each piece as a daily cue — for your desk, your hands, or your back.</p>
+
+            <div class="hero-offer-badges">
+                <div class="offer-badge">
+                    <div class="icon">🔥</div>
+                    <div>
+                        <div class="badge-accent">20% OFF</div>
+                        <div style="font-size:0.8rem;font-weight:400;color:#666;">Limited time only</div>
+                    </div>
+                </div>
+                <div class="offer-badge">
+                    <div class="icon">🌍</div>
+                    <div>
+                        <div class="badge-accent">Free Shipping</div>
+                        <div style="font-size:0.8rem;font-weight:400;color:#666;">Worldwide on orders over $50</div>
+                    </div>
+                </div>
+                <div class="offer-badge">
+                    <div class="icon">✓</div>
+                    <div>
+                        <div style="font-weight:700;">Quality Guaranteed</div>
+                        <div style="font-size:0.8rem;font-weight:400;color:#666;">Premium print & materials</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── PRODUCTS ─── -->
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title">Our Collection</h2>
+            <p class="section-subtitle" style="margin-top:0.75rem;">All products are <strong style="color:var(--accent-color)">20% off</strong> right now — prices below reflect the discount</p>
+
+            <div class="filter-bar">
+                <button class="filter-btn active" onclick="filterProducts('all', this)">All Products</button>
+                <button class="filter-btn" onclick="filterProducts('mug', this)">☕ Mugs</button>
+                <button class="filter-btn" onclick="filterProducts('shirt', this)">👕 T-Shirts</button>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+
+                <!-- Product 1: Progress Not Perfection Mug - Bold Black -->
+                <div class="product-card fade-in-up" data-category="mug">
+                    <div class="product-badge-wrap">
+                        <span class="product-badge badge-sale">20% OFF</span>
+                        <span class="product-badge badge-mug">Mug</span>
+                    </div>
+                    <div class="product-image">
+                        <img src="https://cdn.shopify.com/s/files/1/0641/8373/0257/files/black-glossy-mug-black-11-oz-front-67825ce743672.jpg?v=1736596717" alt="Progress Not Perfection Kaizen Mug - Bold Black Edition" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Progress Not Perfection Series</div>
+                        <div class="product-name">Progress Not Perfection Kaizen Mug — Bold Black Edition</div>
+                        <div class="product-desc">Striking black design. A daily antidote to perfectionism and the starting blocks mentality.</div>
+                        <div class="product-pricing">
+                            <span class="price-original">$30.00</span>
+                            <span class="price-sale">$24.00</span>
+                            <span class="price-saving">Save $6</span>
+                        </div>
+                        <a href="https://store.kaizenmadeeasy.com/products/black-glossy-mug-1" target="_blank" class="btn-shop">
+                            Shop Now
+                            <svg width="16" height="16" viewBox="0 0 24 24" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 2: Progress Not Perfection T-Shirt -->
+                <div class="product-card fade-in-up" data-category="shirt">
+                    <div class="product-badge-wrap">
+                        <span class="product-badge badge-sale">20% OFF</span>
+                        <span class="product-badge badge-shirt">T-Shirt</span>
+                    </div>
+                    <div class="product-image">
+                        <img src="https://cdn.shopify.com/s/files/1/0641/8373/0257/files/unisex-organic-cotton-t-shirt-black-front-67825f41a7539.jpg?v=1736597322" alt="Progress Not Perfection Kaizen T-Shirt - Wearable Daily Reminder" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Kaizen Apparel</div>
+                        <div class="product-name">Progress Not Perfection Kaizen T-Shirt — Wearable Daily Reminder</div>
+                        <div class="product-desc">We made this tee so your mindset is visible to the room. Soft, durable, and statement-making.</div>
+                        <div class="product-pricing">
+                            <span class="price-original">$40.00</span>
+                            <span class="price-sale">$32.00</span>
+                            <span class="price-saving">Save $8</span>
+                        </div>
+                        <a href="https://store.kaizenmadeeasy.com/products/unisex-organic-cotton-t-shirt" target="_blank" class="btn-shop">
+                            Shop Now
+                            <svg width="16" height="16" viewBox="0 0 24 24" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 3: Push Limits Reach Heights Mug -->
+                <div class="product-card fade-in-up" data-category="mug">
+                    <div class="product-badge-wrap">
+                        <span class="product-badge badge-sale">20% OFF</span>
+                        <span class="product-badge badge-mug">Mug</span>
+                    </div>
+                    <div class="product-image">
+                        <img src="https://cdn.shopify.com/s/files/1/0641/8373/0257/files/white-glossy-mug-white-11-oz-front-view-683ad62248cf7.jpg?v=1748686377" alt="Push Limits Reach Heights Kaizen Mug - Daily Motivation for Peak Performance" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Motivation Series</div>
+                        <div class="product-name">Push Limits Reach Heights Kaizen Mug — Daily Motivation for Peak Performance</div>
+                        <div class="product-desc">We designed this mug to fire up your morning and anchor your growth mindset from the first brew.</div>
+                        <div class="product-pricing">
+                            <span class="price-original">$25.00</span>
+                            <span class="price-sale">$20.00</span>
+                            <span class="price-saving">Save $5</span>
+                        </div>
+                        <a href="https://store.kaizenmadeeasy.com/products/white-glossy-mug-2" target="_blank" class="btn-shop">
+                            Shop Now
+                            <svg width="16" height="16" viewBox="0 0 24 24" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 4: Daily Kaizen Reminder Mug - White -->
+                <div class="product-card fade-in-up" data-category="mug">
+                    <div class="product-badge-wrap">
+                        <span class="product-badge badge-sale">20% OFF</span>
+                        <span class="product-badge badge-mug">Mug</span>
+                    </div>
+                    <div class="product-image">
+                        <img src="https://cdn.shopify.com/s/files/1/0641/8373/0257/files/white-glossy-mug-white-11-oz-handle-on-left-683ad5adb666c.jpg?v=1748686261" alt="Daily Kaizen Reminder Mug - Continuous Improvement in Every Sip (white)" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Daily Kaizen Mugs</div>
+                        <div class="product-name">Daily Kaizen Reminder Mug — Continuous Improvement in Every Sip (White)</div>
+                        <div class="product-desc">Clean, minimal, and purposeful. The white edition lets the message speak for itself.</div>
+                        <div class="product-pricing">
+                            <span class="price-original">$25.00</span>
+                            <span class="price-sale">$20.00</span>
+                            <span class="price-saving">Save $5</span>
+                        </div>
+                        <a href="https://store.kaizenmadeeasy.com/products/white-glossy-mug" target="_blank" class="btn-shop">
+                            Shop Now
+                            <svg width="16" height="16" viewBox="0 0 24 24" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 5: Progress Not Perfection Mug - Overcome Perfectionism -->
+                <div class="product-card fade-in-up" data-category="mug">
+                    <div class="product-badge-wrap">
+                        <span class="product-badge badge-sale">20% OFF</span>
+                        <span class="product-badge badge-mug">Mug</span>
+                    </div>
+                    <div class="product-image">
+                        <img src="https://cdn.shopify.com/s/files/1/0641/8373/0257/files/white-glossy-mug-white-11-oz-handle-on-left-683ad54127a34.jpg?v=1748686151" alt="Progress Not Perfection Kaizen Mug - Overcome Perfectionism Daily" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Progress Not Perfection Series</div>
+                        <div class="product-name">Progress Not Perfection Kaizen Mug — Overcome Perfectionism Daily</div>
+                        <div class="product-desc">We designed this mug so the reminder hits before the first sip. Move forward, not sideways.</div>
+                        <div class="product-pricing">
+                            <span class="price-original">$25.00</span>
+                            <span class="price-sale">$20.00</span>
+                            <span class="price-saving">Save $5</span>
+                        </div>
+                        <a href="https://store.kaizenmadeeasy.com/products/white-glossy-mug-progress-not-perfection" target="_blank" class="btn-shop">
+                            Shop Now
+                            <svg width="16" height="16" viewBox="0 0 24 24" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 6: PDCA Cycle Kaizen Mug -->
+                <div class="product-card fade-in-up" data-category="mug">
+                    <div class="product-badge-wrap">
+                        <span class="product-badge badge-sale">20% OFF</span>
+                        <span class="product-badge badge-mug">Mug</span>
+                    </div>
+                    <div class="product-image">
+                        <img src="https://cdn.shopify.com/s/files/1/0641/8373/0257/files/white-glossy-mug-white-11-oz-handle-on-left-683ad3c2ea557.jpg?v=1748685770" alt="PDCA Cycle Kaizen Mug - Continuous Improvement Process Reminder" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Process Improvement Mugs</div>
+                        <div class="product-name">PDCA Cycle Kaizen Mug — Continuous Improvement Process Reminder</div>
+                        <div class="product-desc">Plan. Do. Check. Act. Every sip reinforces the cycle that drives lasting improvement.</div>
+                        <div class="product-pricing">
+                            <span class="price-original">$25.00</span>
+                            <span class="price-sale">$20.00</span>
+                            <span class="price-saving">Save $5</span>
+                        </div>
+                        <a href="https://store.kaizenmadeeasy.com/products/white-glossy-mug-1" target="_blank" class="btn-shop">
+                            Shop Now
+                            <svg width="16" height="16" viewBox="0 0 24 24" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 7: Daily Kaizen Reminder Mug - Black -->
+                <div class="product-card fade-in-up" data-category="mug">
+                    <div class="product-badge-wrap">
+                        <span class="product-badge badge-sale">20% OFF</span>
+                        <span class="product-badge badge-mug">Mug</span>
+                    </div>
+                    <div class="product-image">
+                        <img src="https://cdn.shopify.com/s/files/1/0641/8373/0257/files/black-glossy-mug-black-11-oz-handle-on-left-683ad47092575.jpg?v=1748685944" alt="Daily Kaizen Reminder Mug - Continuous Improvement in Every Sip" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Daily Kaizen Mugs</div>
+                        <div class="product-name">Daily Kaizen Reminder Mug — Continuous Improvement in Every Sip</div>
+                        <div class="product-desc">A rich, full-colour mug that makes your morning brew a ritual of intentional growth.</div>
+                        <div class="product-pricing">
+                            <span class="price-original">$30.00</span>
+                            <span class="price-sale">$24.00</span>
+                            <span class="price-saving">Save $6</span>
+                        </div>
+                        <a href="https://store.kaizenmadeeasy.com/products/kaizen-black-glossy-mug" target="_blank" class="btn-shop">
+                            Shop Now
+                            <svg width="16" height="16" viewBox="0 0 24 24" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 8: Daily Kaizen Reminder Mug - Pink Accent -->
+                <div class="product-card fade-in-up" data-category="mug">
+                    <div class="product-badge-wrap">
+                        <span class="product-badge badge-sale">20% OFF</span>
+                        <span class="product-badge badge-mug">Mug</span>
+                    </div>
+                    <div class="product-image">
+                        <img src="https://cdn.shopify.com/s/files/1/0641/8373/0257/files/white-ceramic-mug-with-color-inside-pink-11-oz-left-683af656a5a9a.jpg?v=1748694623" alt="Daily Kaizen Reminder Mug - Continuous Improvement (Pink Accent)" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Daily Kaizen Mugs</div>
+                        <div class="product-name">Daily Kaizen Reminder Mug — Continuous Improvement (Pink Accent)</div>
+                        <div class="product-desc">A bold, colour-pop mug that puts continuous improvement front and centre every morning.</div>
+                        <div class="product-pricing">
+                            <span class="price-original">$30.00</span>
+                            <span class="price-sale">$24.00</span>
+                            <span class="price-saving">Save $6</span>
+                        </div>
+                        <a href="https://store.kaizenmadeeasy.com/products/mug-with-color-inside" target="_blank" class="btn-shop">
+                            Shop Now
+                            <svg width="16" height="16" viewBox="0 0 24 24" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SHIPPING INFO ─── -->
+    <section class="shipping-section">
+        <div class="container">
+            <h2 class="section-title">Why Shop With Us</h2>
+            <p class="section-subtitle" style="margin-top: 0.75rem;">Everything we do is built to make your experience seamless</p>
+            <div class="shipping-grid">
+                <div class="shipping-card">
+                    <div class="shipping-icon">🌍</div>
+                    <h4>Worldwide Shipping</h4>
+                    <p><span class="highlight">Free on orders over $50.</span> We ship globally so the whole CI community can get involved.</p>
+                </div>
+                <div class="shipping-card">
+                    <div class="shipping-icon">🔥</div>
+                    <h4>20% Off — Right Now</h4>
+                    <p>This is a <span class="highlight">limited-time offer.</span> Every product in our store is discounted. Don't wait.</p>
+                </div>
+                <div class="shipping-card">
+                    <div class="shipping-icon">✅</div>
+                    <h4>Premium Quality</h4>
+                    <p>Vibrant prints, durable materials, and a finish that lasts. We designed each piece to stand up to daily use.</p>
+                </div>
+                <div class="shipping-card">
+                    <div class="shipping-icon">🎁</div>
+                    <h4>Perfect Gift</h4>
+                    <p>Know a Lean or CI practitioner? These make an ideal gift for colleagues, teams, and leaders.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── CTA SECTION ─── -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Don't Miss the 20% Off Sale</h2>
+            <p>This limited-time offer won't last. Grab your daily Kaizen reminder before prices return to normal — and get free worldwide shipping on orders over $50.</p>
+
+            <div class="countdown-wrap">
+                <div class="countdown-label">⏳ Offer ends in</div>
+                <div class="countdown">
+                    <div class="countdown-unit">
+                        <div class="countdown-num" id="cd-hours">--</div>
+                        <div class="countdown-lbl">Hours</div>
+                    </div>
+                    <div class="countdown-unit">
+                        <div class="countdown-num" id="cd-mins">--</div>
+                        <div class="countdown-lbl">Mins</div>
+                    </div>
+                    <div class="countdown-unit">
+                        <div class="countdown-num" id="cd-secs">--</div>
+                        <div class="countdown-lbl">Secs</div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://store.kaizenmadeeasy.com/collections/all" target="_blank" class="btn-cta">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                Shop the Full Collection
+            </a>
+        </div>
+    </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer class="app-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="https://marketing.kaizenmadeeasy.com/assets/images/Logo_blue.png" alt="Kaizen Made Easy" class="footer-logo">
+                <h3>Kaizen Made Easy</h3>
+                <p>Empowering content creators, fostering CI community connections, sharing insights, and engaging thought leaders for meaningful collaborations and opportunities.</p>
+                <div class="footer-social-links">
+                    <a href="https://kaizenmadeeasy.com" target="_blank" class="footer-social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        Website
+                    </a>
+                    <a href="https://www.youtube.com/@kaizenmadeeasy" target="_blank" class="footer-social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                        YouTube
+                    </a>
+                    <a href="https://www.linkedin.com/company/kaizen-made-easy" target="_blank" class="footer-social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://podcast.kaizenmadeeasy.com/" target="_blank" class="footer-social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        Podcast
+                    </a>
+                    <a href="https://store.kaizenmadeeasy.com/collections/all" target="_blank" class="footer-store-link footer-social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                        Visit Store
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2026 Kaizen Made Easy™. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ─── FILTER ───
+        function filterProducts(category, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.querySelectorAll('.product-card').forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // ─── COUNTDOWN ───
+        (function() {
+            // Set end time: 48 hours from now stored in sessionStorage so it persists on reload
+            let endTime = sessionStorage.getItem('kme_sale_end');
+            if (!endTime) {
+                endTime = Date.now() + 48 * 60 * 60 * 1000;
+                sessionStorage.setItem('kme_sale_end', endTime);
+            }
+            endTime = parseInt(endTime);
+
+            function update() {
+                const diff = endTime - Date.now();
+                if (diff <= 0) {
+                    document.getElementById('cd-hours').textContent = '00';
+                    document.getElementById('cd-mins').textContent = '00';
+                    document.getElementById('cd-secs').textContent = '00';
+                    return;
+                }
+                const h = Math.floor(diff / 3600000);
+                const m = Math.floor((diff % 3600000) / 60000);
+                const s = Math.floor((diff % 60000) / 1000);
+                document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
+                document.getElementById('cd-mins').textContent = String(m).padStart(2, '0');
+                document.getElementById('cd-secs').textContent = String(s).padStart(2, '0');
+            }
+            update();
+            setInterval(update, 1000);
+        })();
+
+        // ─── SCROLL ANIMATIONS ───
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.fade-in-up').forEach((el, i) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = `opacity 0.6s ease ${i * 0.07}s, transform 0.6s ease ${i * 0.07}s`;
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+</html>
