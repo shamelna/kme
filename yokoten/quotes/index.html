@@ -98,7 +98,27 @@
   .hero-inner {
     position: relative;
     z-index: 1;
-    max-width: 780px;
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero-left { }
+
+  .hero-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media (max-width: 900px) {
+    .hero-inner {
+      grid-template-columns: 1fr;
+    }
+    .hero-right { display: none; }
   }
 
   .hero-eyebrow {
@@ -817,6 +837,296 @@
 
     footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
   }
+
+  /* ── PDF MODAL ── */
+  .pdf-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(8, 24, 40, 0.92);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+    backdrop-filter: blur(6px);
+  }
+
+  .pdf-modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .pdf-modal {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 90vh;
+    background: #0d2d48;
+    border: 1px solid rgba(1,123,181,0.25);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: translateY(24px) scale(0.98);
+    transition: transform 0.35s ease;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+  }
+
+  .pdf-modal-overlay.active .pdf-modal {
+    transform: translateY(0) scale(1);
+  }
+
+  .pdf-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background: var(--navy);
+    border-bottom: 1px solid rgba(1,123,181,0.2);
+    flex-shrink: 0;
+  }
+
+  .pdf-modal-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .pdf-modal-title .badge {
+    background: var(--red);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+
+  .pdf-modal-title span {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 0.04em;
+  }
+
+  .pdf-modal-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .pdf-modal-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--blue);
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+
+  .pdf-modal-download:hover { background: #0166a0; }
+
+  .pdf-modal-close {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.6);
+    width: 32px;
+    height: 32px;
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+
+  .pdf-modal-close:hover {
+    background: rgba(222,23,56,0.15);
+    border-color: rgba(222,23,56,0.3);
+    color: white;
+  }
+
+  .pdf-modal-body {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .pdf-modal-body iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+
+  /* Fallback for mobile (iframes often blocked) */
+  .pdf-fallback {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    padding: 40px;
+    gap: 20px;
+  }
+
+  .pdf-fallback p {
+    color: rgba(255,255,255,0.6);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* Success state in form */
+  .hero-form-success {
+    display: none;
+    text-align: center;
+    padding: 24px;
+    background: rgba(1,123,181,0.1);
+    border: 1px solid rgba(1,123,181,0.25);
+    border-radius: 4px;
+  }
+
+  .hero-form-success .success-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(1,123,181,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+  }
+
+  .hero-form-success h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.04em;
+    color: white;
+    margin-bottom: 6px;
+  }
+
+  .hero-form-success p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 16px;
+  }
+
+  .btn-reopen {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--red);
+    color: white;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .btn-reopen:hover { background: #c41432; }
+
+
+  /* ── HERO BOOK IMAGE ── */
+  .hero-book-img-wrap {
+    position: relative;
+    display: inline-block;
+  }
+
+  .hero-book-img {
+    width: 100%;
+    max-width: 380px;
+    border-radius: 4px;
+    filter: drop-shadow(-16px 16px 48px rgba(0,0,0,0.6));
+    transition: transform 0.4s ease;
+    display: block;
+  }
+
+  .hero-book-img:hover { transform: translateY(-6px) rotate(-1deg); }
+
+  .book-badge-float {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    background: var(--red);
+    color: white;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 2px;
+    box-shadow: 0 4px 16px rgba(222,23,56,0.45);
+    z-index: 2;
+  }
+
+  /* Fallback if image not yet provided */
+  .book-placeholder {
+    width: 320px;
+    height: 320px;
+    background: linear-gradient(135deg, #0d2d48 0%, #12385b 100%);
+    border: 1px solid rgba(1,123,181,0.3);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: -12px 12px 48px rgba(0,0,0,0.5);
+    transform: perspective(800px) rotateY(-8deg);
+  }
+
+  .book-placeholder-inner { text-align: center; padding: 32px; }
+
+  .bp-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 80px;
+    line-height: 1;
+    color: var(--red);
+  }
+
+  .bp-number sup { font-size: 32px; color: var(--blue); vertical-align: super; }
+
+  .bp-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: rgba(255,255,255,0.7);
+    margin: 8px 0 16px;
+    line-height: 1.4;
+  }
+
+  .bp-divider {
+    width: 40px;
+    height: 2px;
+    background: var(--red);
+    margin: 0 auto 14px;
+  }
+
+  .bp-brand {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+
 </style>
 </head>
 <body id="top">
@@ -824,8 +1134,10 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <img src="https://marketing.kaizenmadeeasy.com/assets/images/Logo%20new%202024%20v2%20-%20White.png" alt="Kaizen Made Easy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-    <span style="display:none; font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:0.08em; color:white;">KAIZEN MADE EASY</span>
+    <img src="https://marketing.kaizenmadeeasy.com/assets/images/Logo%20new%202024%20v2%20-%20White.png"
+         alt="Kaizen Made Easy"
+         style="height:36px;"
+         onerror="this.replaceWith(Object.assign(document.createElement('span'), {textContent:'KAIZEN MADE EASY', style:'font-family:Bebas Neue,sans-serif;font-size:22px;letter-spacing:0.08em;color:white;'}))">
   </div>
   <div class="nav-badge">Free Download</div>
 </nav>
@@ -833,61 +1145,91 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-accent-line"></div>
-  <div class="hero-bg-quote">"</div>
-
   <div class="hero-inner">
-    <div class="hero-eyebrow">
-      <div class="hero-eyebrow-line"></div>
-      <span>Free eBook — Kaizen Made Easy</span>
-    </div>
 
-    <h1 class="hero-title">
-      <span class="accent">100+</span><br>
-      Continuous<br>
-      Improvement<br>
-      <span class="accent-red">Quotes</span>
-    </h1>
+    <!-- LEFT: Headline + Form -->
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span>Free eBook — Kaizen Made Easy</span>
+      </div>
 
-    <div class="hero-subtitle-block">
-      <p class="hero-subtitle">
-        The sharpest wisdom from the greatest minds in Lean, TPS, and Kaizen — curated in one free collection.
-      </p>
-      <div class="hero-authors">
-        <span class="author-chip">Taiichi Ohno</span>
-        <span class="author-chip">W. Edwards Deming</span>
-        <span class="author-chip">Shigeo Shingo</span>
-        <span class="author-chip">Jeffrey Liker</span>
-        <span class="author-chip">Masaaki Imai</span>
-        <span class="author-chip">Mark DeLuzio</span>
-        <span class="author-chip">Steven J. Spear</span>
-        <span class="author-chip">+ more</span>
+      <h1 class="hero-title">
+        <span class="accent">100+</span><br>
+        Continuous<br>
+        Improvement<br>
+        <span class="accent-red">Quotes</span>
+      </h1>
+
+      <div class="hero-subtitle-block">
+        <p class="hero-subtitle">
+          The sharpest wisdom from the greatest minds in Lean, TPS, and Kaizen — curated in one free collection.
+        </p>
+        <div class="hero-authors">
+          <span class="author-chip">Taiichi Ohno</span>
+          <span class="author-chip">W. Edwards Deming</span>
+          <span class="author-chip">Shigeo Shingo</span>
+          <span class="author-chip">Jeffrey Liker</span>
+          <span class="author-chip">Masaaki Imai</span>
+          <span class="author-chip">Mark DeLuzio</span>
+          <span class="author-chip">Steven J. Spear</span>
+          <span class="author-chip">+ more</span>
+        </div>
+      </div>
+
+      <div class="hero-cta-group">
+          <form action="https://app.kit.com/forms/9526394/subscriptions"
+              class="hero-form"
+              method="post">
+          <div class="hero-form-fields">
+            <input class="hero-form-input" name="fields[first_name]" aria-label="First Name" placeholder="First name" required type="text">
+            <input class="hero-form-input" name="email_address" aria-label="Email Address" placeholder="Email address" required type="email">
+            <button data-element="submit" type="submit" class="hero-form-submit">
+              <span>Get Free eBook →</span>
+            </button>
+          </div>
+          <p class="hero-form-privacy">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <strong>100% Free</strong> · No credit card · Unsubscribe anytime
+          </p>
+        </form>
+
+        <!-- SUCCESS STATE — shown after form submission -->
+        <div class="hero-form-success" id="formSuccess">
+          <div class="success-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#017bb5" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <h3>Thank you!</h3>
+          <p>Your eBook is open — if you closed it, grab it below.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;">
+            <button class="btn-reopen" onclick="openModal()">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12h16M12 5l7 7-7 7"/></svg>
+              Read eBook
+            </button>
+            <a href="https://kaizenmadeeasy.com/yokoten/quotes/Quotes_2026.pdf" download="KME-CI-Quotes-2026.pdf" class="btn-reopen" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);text-decoration:none;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              Download PDF
+            </a>
+          </div>
+        </div>
+
       </div>
     </div>
 
-    <div class="hero-cta-group">
-      <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
-      <form action="https://app.kit.com/forms/9526394/subscriptions"
-            class="seva-form hero-form"
-            method="post"
-            data-sv-form="9526394"
-            data-uid="f7e1ce0760"
-            data-format="inline"
-            data-version="5">
-        <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert" style="display:none;list-style:none;background:#fde8e2;border:1px solid #f2643b;color:#ea4110;border-radius:4px;padding:10px 16px;margin-bottom:12px;font-size:13px;"></ul>
-        <div class="hero-form-fields">
-          <input class="hero-form-input" name="fields[first_name]" aria-label="First Name" placeholder="First name" required type="text">
-          <input class="hero-form-input" name="email_address" aria-label="Email Address" placeholder="Email address" required type="email">
-          <button data-element="submit" type="submit" class="hero-form-submit">
-            <div class="formkit-spinner" style="display:none;"><div></div><div></div><div></div></div>
-            <span>Get Free eBook →</span>
-          </button>
-        </div>
-        <p class="hero-form-privacy">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <strong>100% Free</strong> · No credit card · Unsubscribe anytime
-        </p>
-      </form>
+    <!-- RIGHT: Book Mockup (replace src with Gemini-generated mockup image) -->
+    <div class="hero-right">
+      <div class="hero-book-img-wrap">
+        <div class="book-badge-float"><span>FREE</span> eBook</div>
+        <!-- REPLACE src BELOW WITH GEMINI MOCKUP IMAGE URL -->
+        <img
+          src="https://kaizenmadeeasy.com/yokoten/quotes/Quotes_cover.png"
+          alt="100+ CI Quotes eBook"
+          class="hero-book-img"
+          onerror="this.parentElement.innerHTML='<div class=book-placeholder><div class=book-placeholder-inner><div class=bp-number>100<sup>+</sup></div><div class=bp-title>Continuous Improvement Quotes</div><div class=bp-divider></div><div class=bp-brand>Kaizen Made Easy</div></div></div>'"
+        >
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -988,16 +1330,14 @@
 <section class="inside-section">
   <div class="inside-grid">
     <!-- Book Mockup -->
-    <div class="book-mockup reveal">
-      <div class="book-spine"></div>
-      <div class="book-cover">
-        <div class="book-badge"><span>FREE</span>eBook</div>
-        <img class="book-cover-logo" src="https://marketing.kaizenmadeeasy.com/assets/images/Logo%20new%202024%20v2%20-%20White.png" alt="KME" onerror="this.style.display='none'">
-        <div class="book-cover-number">100<sup>+</sup></div>
-        <div class="book-cover-title">Continuous Improvement Quotes</div>
-        <div class="book-cover-divider"></div>
-        <div class="book-cover-sub">Kaizen Made Easy</div>
-      </div>
+    <div class="hero-book-img-wrap reveal" style="justify-content:center;">
+      <div class="book-badge-float"><span>FREE</span> eBook</div>
+      <img
+        src="https://kaizenmadeeasy.com/yokoten/quotes/Quotes_cover.png"
+        alt="100+ CI Quotes eBook"
+        class="hero-book-img"
+        style="max-width:320px;"
+      >
     </div>
 
     <!-- Features List -->
@@ -1078,22 +1418,127 @@
 </footer>
 
 <script>
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.12 });
-  reveals.forEach(el => observer.observe(el));
+  document.addEventListener('DOMContentLoaded', function() {
 
-  // Form submit → redirect to Kit page
-  // Ticker pause on hover
-  const ticker = document.querySelector('.ticker-inner');
-  ticker.addEventListener('mouseenter', () => ticker.style.animationPlayState = 'paused');
-  ticker.addEventListener('mouseleave', () => ticker.style.animationPlayState = 'running');
+    // ── SCROLL REVEAL ──
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+
+    // ── TICKER PAUSE ON HOVER ──
+    const ticker = document.querySelector('.ticker-inner');
+    if (ticker) {
+      ticker.addEventListener('mouseenter', () => ticker.style.animationPlayState = 'paused');
+      ticker.addEventListener('mouseleave', () => ticker.style.animationPlayState = 'running');
+    }
+
+    // ── PDF MODAL ──
+    const modal = document.getElementById('pdfModal');
+    const closeBtn = document.getElementById('closeModal');
+    const pdfIframe = document.getElementById('pdfIframe');
+    const pdfFallback = document.getElementById('pdfFallback');
+
+    window.openModal = function() {
+      if (!modal) return;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      // Detect if iframe is blocked (mobile Safari etc.)
+      setTimeout(() => {
+        try {
+          const iframeDoc = pdfIframe.contentDocument || pdfIframe.contentWindow.document;
+          if (!iframeDoc || iframeDoc.body.innerHTML === '') {
+            pdfIframe.style.display = 'none';
+            pdfFallback.style.display = 'flex';
+          }
+        } catch(e) {
+          pdfIframe.style.display = 'none';
+          pdfFallback.style.display = 'flex';
+        }
+      }, 2000);
+    }
+
+    function closeModal() {
+      if (!modal) return;
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (modal) modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    // ── KIT FORM INTERCEPT ──
+    document.querySelectorAll('.hero-form').forEach(form => {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const btn = form.querySelector('[data-element="submit"]');
+        if (btn) {
+          btn.disabled = true;
+          btn.style.opacity = '0.7';
+          btn.textContent = 'Sending…';
+        }
+
+        try {
+          const formData = new FormData(form);
+          await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          });
+        } catch(err) {
+          // Proceed regardless — don't block user
+        } finally {
+          // Always show success + open modal
+          const heroForm = document.querySelector('.hero-form');
+          const formSuccess = document.getElementById('formSuccess');
+          if (heroForm) heroForm.style.display = 'none';
+          if (formSuccess) formSuccess.style.display = 'block';
+          window.openModal();
+        }
+      });
+    });
+
+  }); // end DOMContentLoaded
 </script>
+
+<!-- PDF MODAL -->
+<div class="pdf-modal-overlay" id="pdfModal" role="dialog" aria-modal="true" aria-label="100+ CI Quotes eBook">
+  <div class="pdf-modal">
+    <div class="pdf-modal-header">
+      <div class="pdf-modal-title">
+        <div class="badge">Free eBook</div>
+        <span>100+ Continuous Improvement Quotes</span>
+      </div>
+      <div class="pdf-modal-actions">
+        <a href="https://kaizenmadeeasy.com/yokoten/quotes/Quotes_2026.pdf" download="KME-CI-Quotes-2026.pdf" class="pdf-modal-download">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download PDF
+        </a>
+        <button class="pdf-modal-close" id="closeModal" aria-label="Close">&times;</button>
+      </div>
+    </div>
+    <div class="pdf-modal-body" id="pdfBody">
+      <iframe
+        src="https://kaizenmadeeasy.com/yokoten/quotes/Quotes_2026.pdf#toolbar=0&navpanes=0&scrollbar=1"
+        title="100+ CI Quotes eBook"
+        id="pdfIframe">
+      </iframe>
+      <div class="pdf-fallback" id="pdfFallback">
+        <div style="font-size:48px;">📄</div>
+        <p>Your eBook is ready.<br>Tap below to open or download it.</p>
+        <a href="https://kaizenmadeeasy.com/yokoten/quotes/Quotes_2026.pdf" target="_blank" class="pdf-modal-download" style="padding:14px 28px;font-size:14px;">
+          Open eBook →
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
